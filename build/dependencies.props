@@ -19,10 +19,10 @@
   </PropertyGroup>
 
   <PropertyGroup Label="GroupDocs MCP Core Package Versions">
-    <GroupDocsMcpCore>1.0.0</GroupDocsMcpCore>
-    <GroupDocsMcpLocalStorage>1.0.0</GroupDocsMcpLocalStorage>
-    <GroupDocsMcpAwsS3Storage>1.0.0</GroupDocsMcpAwsS3Storage>
-    <GroupDocsMcpAzureBlobStorage>1.0.0</GroupDocsMcpAzureBlobStorage>
+    <GroupDocsMcpCore>26.4.0</GroupDocsMcpCore>
+    <GroupDocsMcpLocalStorage>26.4.0</GroupDocsMcpLocalStorage>
+    <GroupDocsMcpAwsS3Storage>26.4.0</GroupDocsMcpAwsS3Storage>
+    <GroupDocsMcpAzureBlobStorage>26.4.0</GroupDocsMcpAzureBlobStorage>
   </PropertyGroup>
 
   <PropertyGroup Label="External Dependency Versions">
