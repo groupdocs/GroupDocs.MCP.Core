@@ -44,6 +44,11 @@ CodeCoverage/
 # MSBuild Binary and Structured Log
 *.binlog
 
+# Build output
+build_out/
+code_sign/
+codesign.zip
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*

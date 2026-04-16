@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>GroupDocs.Mcp.Local.Storage</PackageId>
+    <Version>$(GroupDocsMcpLocalStorage)</Version>
+    <TargetFrameworks>$(McpNetVersions)</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Description>Local filesystem storage provider for GroupDocs MCP Framework. Provides path-sandboxed file access with Docker environment variable auto-detection.</Description>
+    <PackageTags>groupdocs;mcp;model-context-protocol;ai;storage;local;filesystem</PackageTags>
+    <PackageIcon>images\icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath="images\icon.png" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GroupDocs.Mcp.Core\GroupDocs.Mcp.Core.csproj" />
+  </ItemGroup>
+
+</Project>

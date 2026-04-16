@@ -1,0 +1,41 @@
+<Project>
+
+  <PropertyGroup Label="SDK Versions">
+    <McpNetVersions>net8.0;net10.0</McpNetVersions>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package information">
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/groupdocs/groupdocs-mcp-core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/groupdocs/groupdocs-mcp-core</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Authors>GroupDocs Contributors</Authors>
+    <Company>Aspose</Company>
+    <Copyright>Copyright © Aspose Pty Ltd 2025</Copyright>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>true</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <PropertyGroup Label="GroupDocs MCP Core Package Versions">
+    <GroupDocsMcpCore>1.0.0</GroupDocsMcpCore>
+    <GroupDocsMcpLocalStorage>1.0.0</GroupDocsMcpLocalStorage>
+    <GroupDocsMcpAwsS3Storage>1.0.0</GroupDocsMcpAwsS3Storage>
+    <GroupDocsMcpAzureBlobStorage>1.0.0</GroupDocsMcpAzureBlobStorage>
+  </PropertyGroup>
+
+  <PropertyGroup Label="External Dependency Versions">
+    <MicrosoftExtensionsDependencyInjectionAbstractions>10.0.5</MicrosoftExtensionsDependencyInjectionAbstractions>
+    <MicrosoftExtensionsLoggingAbstractions>10.0.5</MicrosoftExtensionsLoggingAbstractions>
+    <MicrosoftExtensionsOptions>10.0.5</MicrosoftExtensionsOptions>
+    <AzureStorageBlobs>12.27.0</AzureStorageBlobs>
+    <AwsSdkS3>4.0.19</AwsSdkS3>
+    <MicrosoftSourceLinkGithub>8.0.0</MicrosoftSourceLinkGithub>
+  </PropertyGroup>
+
+  <PropertyGroup Label="NuGet Common Settings">
+    <PackageReleaseNotes>https://github.com/groupdocs/groupdocs-mcp-core/releases/tag/$(GroupDocsMcpCore)</PackageReleaseNotes>
+  </PropertyGroup>
+
+</Project>

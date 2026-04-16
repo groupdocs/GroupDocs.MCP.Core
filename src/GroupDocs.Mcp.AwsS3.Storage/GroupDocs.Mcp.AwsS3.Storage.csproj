@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <PackageId>GroupDocs.Mcp.AwsS3.Storage</PackageId>
+    <Version>$(GroupDocsMcpAwsS3Storage)</Version>
+    <TargetFrameworks>$(McpNetVersions)</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Description>AWS S3 storage provider for GroupDocs MCP Framework. Supports presigned download URLs for output files.</Description>
+    <PackageTags>groupdocs;mcp;model-context-protocol;ai;storage;aws;s3;amazon</PackageTags>
+    <PackageIcon>images\icon.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\assets\icon.png" Pack="true" Visible="false" PackagePath="images\icon.png" />
+    <None Include="..\..\README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GroupDocs.Mcp.Core\GroupDocs.Mcp.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AWSSDK.S3" Version="$(AwsSdkS3)" />
+  </ItemGroup>
+
+</Project>
