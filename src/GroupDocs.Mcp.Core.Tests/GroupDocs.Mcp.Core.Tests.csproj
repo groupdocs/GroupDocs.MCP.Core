@@ -23,8 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\GroupDocs.Mcp.Core\GroupDocs.Mcp.Core.csproj" />
-    <ProjectReference Include="..\..\src\GroupDocs.Mcp.Local.Storage\GroupDocs.Mcp.Local.Storage.csproj" />
+    <ProjectReference Include="..\GroupDocs.Mcp.Core\GroupDocs.Mcp.Core.csproj" />
+    <ProjectReference Include="..\GroupDocs.Mcp.Local.Storage\GroupDocs.Mcp.Local.Storage.csproj" />
   </ItemGroup>
 
 </Project>

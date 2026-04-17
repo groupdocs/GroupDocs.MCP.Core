@@ -19,4 +19,4 @@ jobs:
           global-json-file: global.json
 
       - name: Build project
-        run: dotnet build ./GroupDocs.Mcp.Core.sln
+        run: dotnet build ./src/GroupDocs.Mcp.Core.sln
