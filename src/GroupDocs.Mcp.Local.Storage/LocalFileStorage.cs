@@ -5,13 +5,24 @@ namespace GroupDocs.Mcp.Local.Storage;
 
 public class LocalFileStorage : IFileStorage
 {
+    // Windows and macOS (default HFS+/APFS) are case-insensitive; Linux is case-sensitive.
+    private static readonly StringComparison PathComparison =
+        OperatingSystem.IsWindows() || OperatingSystem.IsMacOS()
+            ? StringComparison.OrdinalIgnoreCase
+            : StringComparison.Ordinal;
+
     private readonly string _storagePath;
+    private readonly string _storagePathWithSeparator;
     private readonly string _outputPath;
 
     public LocalFileStorage(string storagePath, string? outputPath = null)
     {
         _storagePath = Path.GetFullPath(storagePath);
         _outputPath = Path.GetFullPath(outputPath ?? storagePath);
+
+        _storagePathWithSeparator = _storagePath.EndsWith(Path.DirectorySeparatorChar)
+            ? _storagePath
+            : _storagePath + Path.DirectorySeparatorChar;
 
         if (!Directory.Exists(_storagePath))
             Directory.CreateDirectory(_storagePath);
@@ -97,9 +108,14 @@ public class LocalFileStorage : IFileStorage
 
     private void ValidatePath(string fullPath)
     {
-        if (!fullPath.StartsWith(_storagePath, StringComparison.OrdinalIgnoreCase))
+        // Use trailing-separator boundary so /a/b doesn't prefix-match /a/bc.
+        // Case sensitivity follows host OS conventions.
+        if (!string.Equals(fullPath, _storagePath, PathComparison) &&
+            !fullPath.StartsWith(_storagePathWithSeparator, PathComparison))
+        {
             throw new UnauthorizedAccessException(
                 "Access denied — file is outside the allowed storage directory.");
+        }
     }
 
     private string GetFreeFileName(string fileName)

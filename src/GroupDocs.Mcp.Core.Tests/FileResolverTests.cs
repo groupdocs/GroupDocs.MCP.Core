@@ -2,6 +2,7 @@ using GroupDocs.Mcp.Core;
 using GroupDocs.Mcp.Core.Entities;
 using Microsoft.Extensions.Options;
 using Moq;
+using Xunit;
 
 namespace GroupDocs.Mcp.Core.Tests;
 

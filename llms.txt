@@ -1,0 +1,29 @@
+# GroupDocs MCP Core
+
+Core infrastructure NuGet packages consumed by every GroupDocs product MCP server (Metadata, Parser, Viewer, Conversion, etc.).
+
+## Packages (all released together, CalVer YY.MM.N)
+
+- GroupDocs.Mcp.Core — abstractions: IFileStorage, IFileResolver, ILicenseManager, McpConfig, DI builder
+- GroupDocs.Mcp.Local.Storage — local filesystem IFileStorage
+- GroupDocs.Mcp.AwsS3.Storage — Amazon S3 IFileStorage with presigned URLs
+- GroupDocs.Mcp.AzureBlob.Storage — Azure Blob IFileStorage with SAS URLs
+
+## Key links
+
+- NuGet (Core): https://www.nuget.org/packages/GroupDocs.Mcp.Core
+- Repository: https://github.com/groupdocs/groupdocs-mcp-core
+- License: MIT
+- .NET: net8.0 + net10.0
+- Versioning: CalVer YY.MM.N, single shared version for all four packages
+
+## Environment variables (read by AddLocalStorage)
+
+- GROUPDOCS_MCP_STORAGE_PATH — base folder for input + output
+- GROUPDOCS_MCP_OUTPUT_PATH — optional, output folder override
+- GROUPDOCS_LICENSE_PATH — path to GroupDocs.Total.lic, omit for evaluation mode
+
+## See also
+
+- Product servers that depend on this: groupdocs-metadata-mcp, groupdocs-parser-mcp, groupdocs-viewer-mcp, groupdocs-conversion-mcp, and 9 more.
+- Framework spec: https://github.com/groupdocs/groupdocs-mcp-framework

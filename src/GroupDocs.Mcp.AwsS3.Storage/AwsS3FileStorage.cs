@@ -6,9 +6,10 @@ using GroupDocs.Mcp.Core.Entities;
 
 namespace GroupDocs.Mcp.AwsS3.Storage;
 
-public class AwsS3FileStorage : IFileStorage
+public class AwsS3FileStorage : IFileStorage, IDisposable
 {
     private readonly AwsS3Options _options;
+    private readonly IAmazonS3 _client;
 
     public AwsS3FileStorage(AwsS3Options options)
     {
@@ -21,13 +22,15 @@ public class AwsS3FileStorage : IFileStorage
             throw new ArgumentException("Region is required.", nameof(options));
 
         _options = options;
-        _options.S3Config.RegionEndpoint = RegionEndpoint.GetBySystemName(options.Region);
+        // Honor caller's RegionEndpoint if already set; only fill it from options.Region when missing.
+        _options.S3Config.RegionEndpoint ??= RegionEndpoint.GetBySystemName(options.Region);
+
+        _client = CreateClient();
     }
 
     public async Task<IEnumerable<FileSystemEntry>> ListDirsAndFilesAsync(
         string dirPath, CancellationToken ct = default)
     {
-        using var client = CreateClient();
         var entries = new List<FileSystemEntry>();
 
         var request = new ListObjectsV2Request
@@ -40,7 +43,7 @@ public class AwsS3FileStorage : IFileStorage
         ListObjectsV2Response response;
         do
         {
-            response = await client.ListObjectsV2Async(request, ct);
+            response = await _client.ListObjectsV2Async(request, ct);
 
             foreach (var prefix in response.CommonPrefixes)
                 entries.Add(FileSystemEntry.Directory(
@@ -59,22 +62,20 @@ public class AwsS3FileStorage : IFileStorage
     public async Task<Stream> ReadFileStreamAsync(
         string filePath, CancellationToken ct = default)
     {
-        using var client = CreateClient();
         var request = new GetObjectRequest
         {
             BucketName = _options.BucketName,
             Key = filePath
         };
 
-        var response = await client.GetObjectAsync(request, ct);
+        var response = await _client.GetObjectAsync(request, ct);
         return response.ResponseStream;
     }
 
     public async Task<string> WriteFileAsync(
         string fileName, byte[] bytes, bool rewrite, CancellationToken ct = default)
     {
-        using var client = CreateClient();
-        var key = rewrite ? fileName : await GetFreeFileName(client, fileName, ct);
+        var key = rewrite ? fileName : await GetFreeFileName(_client, fileName, ct);
 
         using var stream = new MemoryStream(bytes);
         var request = new PutObjectRequest
@@ -84,14 +85,13 @@ public class AwsS3FileStorage : IFileStorage
             InputStream = stream
         };
 
-        await client.PutObjectAsync(request, ct);
+        await _client.PutObjectAsync(request, ct);
         return key;
     }
 
     public Task<string?> GetDownloadUrlAsync(
         string filePath, TimeSpan expiry, CancellationToken ct = default)
     {
-        using var client = CreateClient();
         var request = new GetPreSignedUrlRequest
         {
             BucketName = _options.BucketName,
@@ -99,9 +99,11 @@ public class AwsS3FileStorage : IFileStorage
             Expires = DateTime.UtcNow.Add(expiry)
         };
 
-        var url = client.GetPreSignedURL(request);
+        var url = _client.GetPreSignedURL(request);
         return Task.FromResult<string?>(url);
     }
+
+    public void Dispose() => _client?.Dispose();
 
     private IAmazonS3 CreateClient()
     {

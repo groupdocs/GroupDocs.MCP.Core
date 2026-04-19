@@ -21,26 +21,27 @@ on:
 
 jobs:
   test:
-    name: Test on .NET ${{ matrix.dotnet-version }}
+    name: Test on ${{ matrix.framework }}
     runs-on: windows-latest
     strategy:
+      fail-fast: false
       matrix:
-        dotnet-version:
-          - '8.0.x'
-          - '10.0.x'
+        framework:
+          - 'net8.0'
+          - 'net10.0'
     env:
       DOTNET_CLI_TELEMETRY_OPTOUT: true
       DOTNET_NOLOGO: true
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: Setup .NET SDK
+      - name: Setup .NET SDKs
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: ${{ matrix.dotnet-version }}
+          dotnet-version: |
+            8.0.x
+            10.0.x
 
       - name: Restore dependencies
         run: dotnet restore ./src/GroupDocs.Mcp.Core.sln
@@ -54,15 +55,16 @@ jobs:
           ./src/GroupDocs.Mcp.Core.Tests/GroupDocs.Mcp.Core.Tests.csproj
           --no-build
           --configuration Release
+          --framework ${{ matrix.framework }}
           --verbosity normal
-          --logger "trx;LogFileName=test-results-${{ matrix.dotnet-version }}.trx"
+          --logger "trx;LogFileName=test-results-${{ matrix.framework }}.trx"
           --collect:"XPlat Code Coverage"
 
       - name: Upload test results
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results-${{ matrix.dotnet-version }}
+          name: test-results-${{ matrix.framework }}
           path: |
             **/test-results-*.trx
             **/coverage.cobertura.xml
