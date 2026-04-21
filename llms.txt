@@ -12,7 +12,7 @@ Core infrastructure NuGet packages consumed by every GroupDocs product MCP serve
 ## Key links
 
 - NuGet (Core): https://www.nuget.org/packages/GroupDocs.Mcp.Core
-- Repository: https://github.com/groupdocs/groupdocs-mcp-core
+- Repository: https://github.com/groupdocs/GroupDocs.Mcp.Core
 - License: MIT
 - .NET: net8.0 + net10.0
 - Versioning: CalVer YY.MM.N, single shared version for all four packages

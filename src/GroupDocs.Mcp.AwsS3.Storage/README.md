@@ -36,5 +36,5 @@ builder.Services
 - `GetDownloadUrlAsync` returns a presigned `GET` URL whose expiry is controlled by `McpConfig.DownloadUrlExpiry` (default: 1h).
 - `ListDirsAndFilesAsync` uses `/` as delimiter and emulates directory semantics via common prefixes.
 
-Source: https://github.com/groupdocs/groupdocs-mcp-core
+Source: https://github.com/groupdocs/GroupDocs.Mcp.Core
 License: MIT

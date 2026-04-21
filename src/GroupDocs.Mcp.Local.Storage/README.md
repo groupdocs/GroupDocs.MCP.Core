@@ -36,5 +36,5 @@ Output directory (written files):
 - Writes honor a `rewrite` flag; when `false`, colliding file names get a ` (1)`, ` (2)`… suffix.
 - `GetDownloadUrlAsync` returns `null` — local storage has no URL scheme. Callers fall back to the saved path.
 
-Source: https://github.com/groupdocs/groupdocs-mcp-core
+Source: https://github.com/groupdocs/GroupDocs.Mcp.Core
 License: MIT

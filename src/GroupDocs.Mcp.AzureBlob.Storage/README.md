@@ -49,5 +49,5 @@ options.ContainerName   = "documents";
 - Writes honor a `rewrite` flag; when `false`, colliding blob names get a ` (1)`, ` (2)`… suffix.
 - `GetDownloadUrlAsync` returns a SAS URL (read-only) whose expiry is controlled by `McpConfig.DownloadUrlExpiry` (default: 1h). Returns `null` if the client cannot generate SAS.
 
-Source: https://github.com/groupdocs/groupdocs-mcp-core
+Source: https://github.com/groupdocs/GroupDocs.Mcp.Core
 License: MIT

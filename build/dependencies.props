@@ -13,8 +13,8 @@
 
   <PropertyGroup Label="Package information">
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/groupdocs/groupdocs-mcp-core</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/groupdocs/groupdocs-mcp-core</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/groupdocs/GroupDocs.Mcp.Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/groupdocs/GroupDocs.Mcp.Core</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Authors>GroupDocs Contributors</Authors>
     <Company>Aspose</Company>
@@ -25,10 +25,10 @@
   </PropertyGroup>
 
   <PropertyGroup Label="GroupDocs MCP Core Package Versions">
-    <GroupDocsMcpCore>26.4.0</GroupDocsMcpCore>
-    <GroupDocsMcpLocalStorage>26.4.0</GroupDocsMcpLocalStorage>
-    <GroupDocsMcpAwsS3Storage>26.4.0</GroupDocsMcpAwsS3Storage>
-    <GroupDocsMcpAzureBlobStorage>26.4.0</GroupDocsMcpAzureBlobStorage>
+    <GroupDocsMcpCore>26.4.1</GroupDocsMcpCore>
+    <GroupDocsMcpLocalStorage>26.4.1</GroupDocsMcpLocalStorage>
+    <GroupDocsMcpAwsS3Storage>26.4.1</GroupDocsMcpAwsS3Storage>
+    <GroupDocsMcpAzureBlobStorage>26.4.1</GroupDocsMcpAzureBlobStorage>
   </PropertyGroup>
 
   <PropertyGroup Label="External Dependency Versions">
@@ -41,7 +41,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="NuGet Common Settings">
-    <PackageReleaseNotes>https://github.com/groupdocs/groupdocs-mcp-core/releases/tag/$(GroupDocsMcpCore)</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/groupdocs/GroupDocs.Mcp.Core/releases/tag/$(GroupDocsMcpCore)</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>

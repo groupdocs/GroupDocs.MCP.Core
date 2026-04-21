@@ -39,5 +39,5 @@ builder.Services
 | `GroupDocs.Mcp.AwsS3.Storage` | Amazon S3 `IFileStorage` with presigned URLs |
 | `GroupDocs.Mcp.AzureBlob.Storage` | Azure Blob `IFileStorage` with SAS URLs |
 
-Source: https://github.com/groupdocs/groupdocs-mcp-core
+Source: https://github.com/groupdocs/GroupDocs.Mcp.Core
 License: MIT
